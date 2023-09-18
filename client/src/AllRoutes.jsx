@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./Pages/Home/Home";
 import Auth from "./Pages/Auth/Auth";
+import PasswordResetForm from "./Pages/PasswordReset/PasswordResetForm";
 import Questions from "./Pages/Questions/Questions";
 import AskQuestion from "./Pages/AskQuestion/AskQuestion";
 import DisplayQuestion from "./Pages/Questions/DisplayQuestion";
@@ -18,6 +19,7 @@ const AllRoutes = ({ slideIn, handleSlideIn }) => {
         element={<Home slideIn={slideIn} handleSlideIn={handleSlideIn} />}
       />
       <Route path="/Auth" element={<Auth />} />
+      <Route path="/forgot-password" element={<PasswordResetForm />} />
       <Route path="/AskQuestion" element={<AskQuestion />} />
       <Route
         path="/Questions"

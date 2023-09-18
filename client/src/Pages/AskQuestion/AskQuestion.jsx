@@ -47,7 +47,7 @@ const AskQuestion = () => {
             <label htmlFor="ask-ques-title">
               <h4>Title</h4>
               <p>
-                Be specific and imagine you’re asking a question to another
+                Be specific and imagine you're asking a question to another
                 person
               </p>
               <input
@@ -91,7 +91,7 @@ const AskQuestion = () => {
           </div>
           <input
             type="submit"
-            value="Reivew your question"
+            value="Post Your Question"
             className="review-btn"
           />
         </form>

@@ -22,6 +22,11 @@ const Auth = () => {
     setPassword("");
   };
 
+  // handling forgot-password
+  const handleForgotPassword = () => {
+    navigate("/forgot-password");
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email && !password) {
@@ -74,7 +79,13 @@ const Auth = () => {
               <h4>Password</h4>
               {!isSignup && (
                 <p style={{ color: "#007ac6", fontSize: "13px" }}>
-                  forgot password?
+                  <button
+                    type="button"
+                    className="handle-switch-btn"
+                    onClick={handleForgotPassword}
+                  >
+                    forgot password?
+                  </button>
                 </p>
               )}
             </div>

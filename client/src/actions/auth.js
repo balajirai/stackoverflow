@@ -11,6 +11,7 @@ export const signup = (authData, navigate) => async (dispatch) => {
     navigate("/");
   } catch (error) {
     console.log(error);
+    if(error.response.status===404) alert("User already Exists");
   }
 };
 
@@ -22,5 +23,8 @@ export const login = (authData, navigate) => async (dispatch) => {
     navigate("/");
   } catch (error) {
     console.log(error);
+    if(error.response.status===400) alert("Please Check Your Password");
+    if(error.response.status===404) alert("User does not Exists");
+    
   }
 };
