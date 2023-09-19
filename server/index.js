@@ -24,9 +24,9 @@ app.use(cors());
 //     // res.send("This is a stack overflow by balajirai");
 // })
 
-// app.get("/", (req,res)=>{
-//   res.send(`<h1 style="text-align:center; margin-top:40px; color:green;">Server Home Page</h1>`)
-// })
+app.get("/", (req,res)=>{
+  res.send(`<h1 style="text-align:center; margin-top:40px; color:green;">Server Home Page</h1>`)
+})
 
 app.use("/user", userRoutes);
 app.use("/questions", questionRoutes);

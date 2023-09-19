@@ -91,6 +91,19 @@ export const forgotPassword = async (req, res) => {
         },
       });
 
+      await new Promise((resolve, reject) => {
+        // verify connection configuration
+        transporter.verify(function (error, success) {
+          if (error) {
+            console.log(error);
+            reject(error);
+          } else {
+            console.log("Server is ready to take our messages");
+            resolve(success);
+          }
+        });
+      });
+
       const mailOptions = {
         from: process.env.MY_MAIL,
         to: email, // Replace with the recipient's email
@@ -98,19 +111,33 @@ export const forgotPassword = async (req, res) => {
         text: `Click the following link to reset your password: ${resetLink}`,
       };
 
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          console.error('Email not sent:', error);
-          // Handle the error
-          res.status(200).json({ message: 'Email not sent' });
-        } else {
-          console.log('Email sent:', info.response);
-          // Inform the user that an email has been sent
-          // res.status(200).json({ message: 'User exists' });
-        }
-      });
+      await new Promise((resolve, reject) => {
+        // send mail
+        transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+            console.error('Email not sent:', error);
+            // Handle the error
+            reject(error);
+            res.status(200).json({ message: 'Email not sent' });
+          } else {
+            console.log('Email sent:', info.response);
+            resolve(info);
+            // Inform the user that an email has been sent
+            res.status(200).json({ message: 'User exists' });
+          }
+        });
 
-      res.status(200).json({ message: 'User exists' });
+        // transporter.sendMail(mailData, (err, info) => {
+        //   if (err) {
+        //     console.error(err);
+        //     reject(err);
+        //   } else {
+        //     console.log(info);
+        //     resolve(info);
+        //   }
+        // });
+      });
+      // res.status(200).json({ message: 'User exists' });
     }
     else {
       res.status(200).json({ message: 'User not found' });
@@ -147,7 +174,7 @@ export const postResetPassword = async (req, res) => {
   const { password } = req.body;
   // res.send(req.params);
   try {
-    const user = await users.findById({ _id:id });
+    const user = await users.findById({ _id: id });
     if (!user) {
       res.send("Invalid Id...");
       return;

@@ -13,6 +13,7 @@ function PasswordResetForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setMessage("Please Wait...");
 
         // Define the request payload
         const requestBody = {
@@ -24,7 +25,8 @@ function PasswordResetForm() {
         // Make a POST request to the backend endpoint
         try {
             // const response = await fetch('http://localhost:5000/user/forgot-password', {
-            const response = await fetch('https://stackoverflow-balajirai.onrender.com/user/forgot-password', {
+            // const response = await fetch('https://stackoverflow-balajirai.onrender.com/user/forgot-password', {
+            const response = await fetch('https://balaji-stackoverflow.vercel.app/user/forgot-password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,7 +42,7 @@ function PasswordResetForm() {
                 if (data.message === 'User exists') {
                     setMessage(`A password reset link has been sent to ${email}`);
                 } 
-                else if(data.message==='Email not sent'){
+                else if(data.message === 'Email not sent'){
                     setMessage("Error occured while sending password reset link")
                 }
                 else {
@@ -56,42 +58,9 @@ function PasswordResetForm() {
         }
     };
 
-    // now finding the id and token from the redirected link from sent email
-    // const pathSegments = window.location.pathname.split("/");
-
-    // const id = pathSegments[3];   // Assuming 'id' is the third path segment
-    // const token = pathSegments[4];    // Assuming 'token' is the fourth path segment
-
-    // const api_url = `http://localhost:5000/user/forgot-password/${id}/${token}`;
-
-    // console.log(api_url);
-    // try {
-    //     const response = fetch(api_url, {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         // body: JSON.stringify(requestBody),
-    //     });
-
-    //     if(response.ok){
-    //         setResetPassword(true);
-    //         alert("Now proceed to reset password");
-    //     }
-    //     else{
-    //         setResetPassword(false);
-    //     }
-
-    // } catch (error) {
-    //     console.log(error);
-    // }
-
-
-
-
     return (
-        <div className="center-container-pass"> {/* Add the center-container class */}
-            <div className="container-pass"> {/* Add the container class */}
+        <div className="center-container-pass">
+            <div className="container-pass"> 
                 <h2>Password Reset</h2>
                 <form onSubmit={handleSubmit}>
                     <div>
