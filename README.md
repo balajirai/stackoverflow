@@ -1,6 +1,6 @@
 # Stackoverflow
 
-A a full-stack web application akin to Stack Overflow (questionnaire forum)
+A full-stack web application akin to Stack Overflow (questionnaire forum)
 
 ---
 
