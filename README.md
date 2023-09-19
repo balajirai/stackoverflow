@@ -1,23 +1,49 @@
-# Stack Overflow Clone
+# Stackoverflow
 
-This website is a question forum.
+A a full-stack web application akin to Stack Overflow (questionnaire forum)
+
+---
+
+<p align="center">
+<img src="client/src/assets/images/home.png">
+</p>
+
+
+<p align="center">
+<img src="client/src/assets/images/signup.png">
+</p>
+
+
+<p align="center">
+<img src="client/src/assets/images/login.png">
+</p>
+
+
+<p align="center">
+<img src="client/src/assets/images/password-reset.png">
+</p>
+
+---
 
 ## Technologies used:
 
 - React js
 - Node js
 - Express js
-- MongoDb
+- MongoDB
 - Redux
-- Json web token and more
+- JWT and more
 
-## Contributions
+---
 
-Contributions are always welcomed. Anyone can contribute to this project. Contributors will be given credits.
+## Contributors
 
-## Credits
+- Balaji
 
-This website uses icons from font awesome.
+---
 
+## License & Copyright
 
-Made by [Balaji](https://balajirai.blogspot.com)
+Copyright [©balaji](https://github.com/balajirai)
+
+Licensed under the [MIT License](LICENSE)
