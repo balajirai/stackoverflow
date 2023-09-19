@@ -25,8 +25,8 @@ function PasswordResetForm() {
         // Make a POST request to the backend endpoint
         try {
             // const response = await fetch('http://localhost:5000/user/forgot-password', {
-            // const response = await fetch('https://stackoverflow-balajirai.onrender.com/user/forgot-password', {
-            const response = await fetch('https://balaji-stackoverflow.vercel.app/user/forgot-password', {
+            const response = await fetch('https://stackoverflow-balajirai.onrender.com/user/forgot-password', {
+            // const response = await fetch('https://balaji-stackoverflow.vercel.app/user/forgot-password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

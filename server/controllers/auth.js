@@ -72,12 +72,11 @@ export const forgotPassword = async (req, res) => {
       const token = jwt.sign(payload, secret, { expiresIn: "15m" });
 
       // backend protocol and domain
-      // const protocol = req.protocol;
-      // const host = req.get("host");
+      const protocol = req.protocol;
+      const host = req.get("host");
 
       // const resetLink = `http://localhost:5000/user/forgot-password/${user._id}/${token}`;
-      // const resetLink = `${protocol}://${host}/user/forgot-password/${user._id}/${token}`;
-      const resetLink = `https://balaji-stackoverflow.vercel.app/user/forgot-password/${user._id}/${token}`;
+      const resetLink = `${protocol}://${host}/user/forgot-password/${user._id}/${token}`;
       console.log("Link : ", resetLink);
 
       // sending mail using nodemailer
