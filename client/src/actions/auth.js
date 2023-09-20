@@ -25,6 +25,6 @@ export const login = (authData, navigate) => async (dispatch) => {
     console.log(error);
     if(error.response.status===400) alert("Please Check Your Password");
     if(error.response.status===404) alert("User does not Exists");
-    
+    window.location.reload();
   }
 };

@@ -11,6 +11,7 @@ const Auth = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,8 +37,10 @@ const Auth = () => {
       if (!name) {
         alert("Enter a name to continue");
       }
+      setMessage("Please Wait...");
       dispatch(signup({ name, email, password }, navigate));
     } else {
+      setMessage("Please Wait...");
       dispatch(login({ email, password }, navigate));
     }
   };
@@ -102,6 +105,7 @@ const Auth = () => {
           <button type="submit" className="auth-btn">
             {isSignup ? "Sign up" : "Log in"}
           </button>
+          {message && <p style={{color: "#007ac6", textAlign:"center", paddingTop: "0.5",}}>{message}</p>}
         </form>
         <p>
           {isSignup ? "Already have an account?" : "Don't have an account?"}
