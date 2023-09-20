@@ -126,16 +126,6 @@ export const forgotPassword = async (req, res) => {
             res.status(200).json({ message: 'User exists' });
           }
         });
-
-        // transporter.sendMail(mailData, (err, info) => {
-        //   if (err) {
-        //     console.error(err);
-        //     reject(err);
-        //   } else {
-        //     console.log(info);
-        //     resolve(info);
-        //   }
-        // });
       });
       // res.status(200).json({ message: 'User exists' });
     }
