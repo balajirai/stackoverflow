@@ -71,7 +71,7 @@ export const forgotPassword = async (req, res) => {
       }
       const token = jwt.sign(payload, secret, { expiresIn: "15m" });
 
-      // backend protocol and domain
+      // backend protocol and domain for sending link
       const protocol = req.protocol;
       const host = req.get("host");
 
